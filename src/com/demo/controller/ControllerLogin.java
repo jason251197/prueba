@@ -7,13 +7,14 @@ package com.demo.controller;
 
 import com.demo.model.ModeloUsuario;
 import com.demo.model.entity.Usuario;
+import java.io.File;
 
 /**
  *
  * @author whiston
  */
 public class ControllerLogin extends Controller {
-    
+   File Archivo = new File("D:\\trabajo.txt");
     public ControllerLogin(){
     
     }
@@ -21,25 +22,27 @@ public class ControllerLogin extends Controller {
     public boolean logIn(String usuario, String clave){
         boolean band = false;
         
-        Usuario user = new Usuario(usuario, clave);
-        
-        band = ModeloUsuario.logIn(user);
+        band = ModeloUsuario.logIn(Archivo,usuario, clave);
         
         return band;
     }
     
     
-    public long logUp(/*long id,String nombres,String apellidos, String email, int tipo, String clave*/){
+    public boolean logUp(String id,String usuario,  String clave, String nombres,String apellidos, String email){
         
-        long status = 0;
+        boolean band=false;
         
-        return status;
+        Usuario user1 = new Usuario(id ,usuario, clave,nombres,apellidos,email);
+        
+        band = ModeloUsuario.logup(Archivo,user1);
+        
+        return band;
     }
     
-    public long RecuperarClave(){
-        long status = 0;
-        
-        return status;
+    public boolean RecuperarClave(String usuario, String clave){
+        boolean band=false;
+        band = ModeloUsuario.RecuperarClave(Archivo,usuario,clave);
+        return band;
     }
     
 }

@@ -127,8 +127,7 @@ public class VistaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLoginActionPerformed
-        // TODO add your handling code here:
-        String usuario, clave;
+       String usuario, clave;
         usuario = this.JtxtUsuario.getText();
         clave = this.jTxtClave.getText();
         
