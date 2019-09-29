@@ -5,6 +5,7 @@
  */
 package com.demo.view;
 
+import com.demo.controller.ControllerLogin;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,9 +17,11 @@ public class RecuperarCLave extends javax.swing.JFrame {
     /**
      * Creates new form RecuperarCLave
      */
+ ControllerLogin clg;
     public RecuperarCLave() {
         initComponents();
         setLocationRelativeTo(null);
+        clg = new ControllerLogin();
     }
 
     /**
@@ -144,10 +147,14 @@ public class RecuperarCLave extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      if(txtUsuario.getText().isEmpty() || txtnclave.getText().isEmpty() || txtRclave.getText().isEmpty()){
+     if(txtUsuario.getText().isEmpty() || txtnclave.getText().isEmpty() || txtRclave.getText().isEmpty()){
         JOptionPane.showMessageDialog(null,"Ingrese todos los datos");  
       }else{
           if (txtnclave.getText().equals(txtRclave.getText())){
+              String usuario=txtUsuario.getText();
+              String clave=txtRclave.getText();
+              boolean band;
+              band = clg.RecuperarClave(usuario, clave);
               JOptionPane.showMessageDialog(null,"Recuperacion de Contraseña Correcta");
               vl.setVisible(true);
               dispose();

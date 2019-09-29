@@ -19,6 +19,7 @@ ControllerLogin clg;
      */
     VistaLogin vl = new VistaLogin();
     public VistaLogout() {
+        clg = new ControllerLogin();
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -171,9 +172,22 @@ ControllerLogin clg;
                 txtid.getText().isEmpty() ||
                 txtusuario.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Ingrese todos los datos");
-        }else{    
+        }else{
+            boolean band1;
+            String usuario, clave, nombre, email, apellido, id;
+        usuario = this.txtusuario.getText();
+        clave = this.txtClave.getText();
+        email=this.txtEmail.getText();
+        nombre=this.txtNombres.getText();
+        apellido = this.txtApellido.getText();
+        id=this.txtid.getText();
+            band1= this.clg.logUp(id , usuario, clave,nombre,apellido,email);
+            if(band1==true){
             JOptionPane.showMessageDialog(null,"Ingresado Correctamente"); 
             dispose();
+            }else{
+              JOptionPane.showMessageDialog(null,"Algo Salio mal");  
+            }
             vl.setVisible(true);
         }
         

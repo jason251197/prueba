@@ -11,35 +11,35 @@ package com.demo.model.entity;
  */
 public class Usuario {
     
-    private long id;
+     private String id;
     private String email;
     private String clave;
     private String apellidos;
     private String nombres;
-    private int tipo;
+    private String nusuario;
 
     public Usuario() {
     }
 
-    public Usuario(long id,String nombres,String apellidos, String email, int tipo, String clave) {
+    public Usuario(String id,String usuario,  String clave, String nombres,String apellidos, String email) {
         this.id = id;
         this.email = email;
         this.clave = clave;
         this.apellidos = apellidos;
         this.nombres = nombres;
-        this.tipo = tipo;
+        this.nusuario = usuario;
     }
 
-    public Usuario(String email, String clave) {
-        this.email = email;
+    public Usuario(String nusuario, String clave) {
+        this.nusuario = nusuario;
         this.clave = clave;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -75,14 +75,11 @@ public class Usuario {
         this.nombres = nombres;
     }
 
-    public int getTipo() {
-        return tipo;
+    public String getUsuario() {
+        return nusuario;
     }
 
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
+    public void setUsuario(String usuario) {
+        this.nusuario = usuario;
     }
-    
-    
-    
 }
