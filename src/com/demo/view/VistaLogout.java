@@ -21,6 +21,7 @@ ControllerLogin clg;
     public VistaLogout() {
         initComponents();
         setLocationRelativeTo(null);
+        clg=new ControllerLogin();
     }
 
     /**
@@ -164,18 +165,26 @@ ControllerLogin clg;
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        if(txtClave.getText().isEmpty() || 
-                txtNombres.getText().isEmpty() || 
-                txtEmail.getText().isEmpty() ||
-                txtApellido.getText().isEmpty() ||
-                txtid.getText().isEmpty() ||
-                txtusuario.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Ingrese todos los datos");
-        }else{    
-            JOptionPane.showMessageDialog(null,"Ingresado Correctamente"); 
+         
+        String usuario, clave, nombre, email, apellido, id;
+        usuario = this.txtusuario.getText();
+        clave = this.txtClave.getText();
+        email=this.txtEmail.getText();
+        nombre=this.txtNombres.getText();
+        apellido = this.txtApellido.getText();
+        id=this.txtid.getText();
+        
+        boolean band1;
+        
+            band1= this.clg.logUp(id,usuario,clave,nombre,apellido,email);
+            
+            if(band1){
+               JOptionPane.showMessageDialog(null,"Ingresado Correctamente"); 
             dispose();
-            vl.setVisible(true);
-        }
+            vl.setVisible(true); 
+            }else{
+                JOptionPane.showMessageDialog(null,"Errores al ingresar");
+            }
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 

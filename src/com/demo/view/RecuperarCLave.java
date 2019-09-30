@@ -5,6 +5,7 @@
  */
 package com.demo.view;
 
+import com.demo.controller.ControllerLogin;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,9 +17,11 @@ public class RecuperarCLave extends javax.swing.JFrame {
     /**
      * Creates new form RecuperarCLave
      */
+    ControllerLogin clg;
     public RecuperarCLave() {
         initComponents();
         setLocationRelativeTo(null);
+        clg = new ControllerLogin();
     }
 
     /**
@@ -148,9 +151,18 @@ public class RecuperarCLave extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Ingrese todos los datos");  
       }else{
           if (txtnclave.getText().equals(txtRclave.getText())){
-              JOptionPane.showMessageDialog(null,"Recuperacion de Contraseña Correcta");
+              boolean band;
+              String usuario, clave;
+              usuario=txtUsuario.getText();
+              clave=txtnclave.getText();
+              band= clg.RecuperarClave(usuario,clave);
+              if(band){
+                JOptionPane.showMessageDialog(null,"Recuperacion de Contraseña Correcta");
               vl.setVisible(true);
-              dispose();
+              dispose();  
+              }else{
+                  JOptionPane.showMessageDialog(null,"Algo salio mal... Vuelve a intentarlo!");
+              }
           }else{
               JOptionPane.showMessageDialog(null,"Las contraseñas no son compatibles");
           }

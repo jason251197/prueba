@@ -13,7 +13,7 @@ import com.demo.model.entity.Usuario;
  * @author whiston
  */
 public class ControllerLogin extends Controller {
-    
+     
     public ControllerLogin(){
     
     }
@@ -21,25 +21,26 @@ public class ControllerLogin extends Controller {
     public boolean logIn(String usuario, String clave){
         boolean band = false;
         
-        Usuario user = new Usuario(usuario, clave);
-        
-        band = ModeloUsuario.logIn(user);
+        band = ModeloUsuario.logIn(usuario, clave);
         
         return band;
     }
     
     
-    public long logUp(/*long id,String nombres,String apellidos, String email, int tipo, String clave*/){
+    public boolean logUp(String id, String usuario, String clave,String nombres,String apellidos,String email){
         
-        long status = 0;
+        boolean band = false;
+        Usuario user = new Usuario(id,usuario,clave,nombres,apellidos,email);
+        band = ModeloUsuario.logup(user);
         
-        return status;
+        return band;
     }
     
-    public long RecuperarClave(){
-        long status = 0;
+    public boolean RecuperarClave(String usuario, String clave){
+        boolean band=false;
         
-        return status;
+        band = ModeloUsuario.Recuperarclave(usuario, clave);
+        
+        return band;
     }
-    
 }

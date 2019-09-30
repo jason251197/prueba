@@ -10,36 +10,36 @@ package com.demo.model.entity;
  * @author whiston
  */
 public class Usuario {
-    
-    private long id;
+     
+    private String id;
     private String email;
     private String clave;
     private String apellidos;
     private String nombres;
-    private int tipo;
+    private String nusuario;
 
     public Usuario() {
     }
 
-    public Usuario(long id,String nombres,String apellidos, String email, int tipo, String clave) {
+    public Usuario(String id, String usuario, String clave,String nombres,String apellidos,String email) {
         this.id = id;
         this.email = email;
         this.clave = clave;
         this.apellidos = apellidos;
         this.nombres = nombres;
-        this.tipo = tipo;
+        this.nusuario = usuario;
     }
 
-    public Usuario(String email, String clave) {
-        this.email = email;
+    public Usuario(String usuario, String clave) {
+        this.nusuario = usuario;
         this.clave = clave;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -75,14 +75,13 @@ public class Usuario {
         this.nombres = nombres;
     }
 
-    public int getTipo() {
-        return tipo;
+    public String getUSUARIO() {
+        return nusuario;
     }
 
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
+    public void setUSUARIO(String usuario) {
+        this.nusuario = usuario;
     }
     
-    
-    
+      
 }
